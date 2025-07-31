@@ -28,8 +28,10 @@ class Settings:
         """Get the database URL for the current environment."""
         if self.TEST_DB_URL:
             return self.TEST_DB_URL
-        return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD} \
-                @{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        return (
+            f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
+            f"@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
+        )
 
 
 # Global settings instance
